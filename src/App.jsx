@@ -1,4 +1,4 @@
-const itemList = [
+const Food = [
   {
     id: 1,
     title: "Chicken Masala",
@@ -32,22 +32,34 @@ const itemList = [
 import { useState } from "react";
 
 function App() {
+  const [itemList, setItemList] = useState(Food);
+
+  function handleSearch(e) {
+    console.log(e);
+    setItemList((Food) =>
+      Food.filter((food) => {
+        return food.title.toLowerCase().includes(e.toLowerCase());
+      }),
+    );
+  }
+
   return (
     <div className="App">
-      <SearchBar />
-      <FilterOptions />
-      <Menu />
+      <SearchBar handleSearch={handleSearch} />
+      <FilterOptions setItemList={setItemList} />
+      <Menu itemList={itemList} />
     </div>
   );
 }
 
 export default App;
 
-function SearchBar() {
+function SearchBar({ handleSearch }) {
   const [recipeValue, setRecipeValue] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
+    handleSearch(recipeValue);
   }
 
   return (
@@ -65,26 +77,51 @@ function SearchBar() {
   );
 }
 
-function FilterOptions() {
+function FilterOptions({ setItemList }) {
+  function handleClick(name) {
+    if (name) {
+      setItemList((items) => items.filter((item) => item.tags.includes(name)));
+    }
+  }
   return (
     <div className="filter-options">
-      <button type="submit" className="filter-btn">
+      <button
+        type="submit"
+        className="filter-btn"
+        onClick={() => handleClick("Breakfast")}
+      >
         BreakFast
       </button>
-      <button type="submit" className="filter-btn">
+      <button
+        type="submit"
+        className="filter-btn"
+        onClick={() => handleClick("Brunch")}
+      >
         Brunch
       </button>
-      <button type="submit" className="filter-btn">
+      <button
+        type="submit"
+        className="filter-btn"
+        onClick={() => handleClick("Lunch")}
+      >
         Lunch
       </button>
-      <button type="submit" className="filter-btn">
+      <button type="submit" onClick={() => handleClick("Dinner")}>
         Dinner
+      </button>
+      <button
+        type="submit"
+        onClick={() => {
+          setItemList(Food);
+        }}
+      >
+        Clear
       </button>
     </div>
   );
 }
 
-function Menu() {
+function Menu({ itemList }) {
   return (
     <div className="Menu-Container">
       <div className="Menu">
