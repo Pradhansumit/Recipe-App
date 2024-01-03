@@ -18,9 +18,27 @@ body {
   font-family: 'Ubuntu', sans-serif;
 }
 
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-bottom: 1rem;
+}
+
+nav h1 {
+  font-size: 3rem;
+}
+
+.nav-logo {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
+
 .App {
   display: flex;
-  padding: 5rem 1rem;
+  padding: 3rem 1rem;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -57,4 +75,43 @@ body {
   width: 300px;
   height: 200px;
   object-fit: cover;
+}
+
+input[type=search] {
+  padding: 7px 8px;
+  font-size: 14px;
+  border-radius: 10px;
+  margin-right: 10px;
+  width: 300px;
+  background: transparent;
+}
+
+.submit-btn {
+  padding: 7px 8px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  background: transparent;
+  transition: all .2s ease;
+}
+
+.submit-btn:hover {
+  background: rgba(255, 255, 255, 0.71);
+}
+
+
+.filter-options {
+  margin: 20px 0;
+}
+
+.filter-btn {
+  padding: 5px 10px;
+  border-radius: 10px;
+  background-color: transparent;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.filter-btn:hover {
+  background-color: rgba(255, 255, 0, 0.147);
 }

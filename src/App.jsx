@@ -45,6 +45,7 @@ function App() {
 
   return (
     <div className="App">
+      <Navigation />
       <SearchBar handleSearch={handleSearch} />
       <FilterOptions setItemList={setItemList} />
       <Menu itemList={itemList} />
@@ -53,6 +54,15 @@ function App() {
 }
 
 export default App;
+
+function Navigation() {
+  return (
+    <nav>
+      <img className="nav-logo" src="images/recipe.png" alt="Logo" />
+      <h1>Recipe Hooks</h1>
+    </nav>
+  );
+}
 
 function SearchBar({ handleSearch }) {
   const [recipeValue, setRecipeValue] = useState("");
@@ -71,7 +81,7 @@ function SearchBar({ handleSearch }) {
           value={recipeValue}
           onChange={(e) => setRecipeValue(e.target.value)}
         />
-        <input type="submit" />
+        <input className="submit-btn" type="submit" />
       </form>
     </div>
   );
@@ -106,11 +116,16 @@ function FilterOptions({ setItemList }) {
       >
         Lunch
       </button>
-      <button type="submit" onClick={() => handleClick("Dinner")}>
+      <button
+        className="filter-btn"
+        type="submit"
+        onClick={() => handleClick("Dinner")}
+      >
         Dinner
       </button>
       <button
         type="submit"
+        className="filter-btn"
         onClick={() => {
           setItemList(Food);
         }}
