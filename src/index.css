@@ -115,3 +115,59 @@ input[type=search] {
 .filter-btn:hover {
   background-color: rgba(255, 255, 0, 0.147);
 }
+
+.know-more {
+  padding: 5px 10px;
+  border-radius: 10px;
+  background-color: rgba(220, 20, 60, 0.824);
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+  border: none;
+  font-size: 16px;
+}
+
+
+.Modal {
+  display: block;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 999;
+  transform: translate(-50%, -50%);
+  background: rgb(255, 255, 255);
+  border-radius: 5px;
+  width: 400px;
+  text-align: center;
+}
+
+
+.Modal-body {
+  padding: 2rem;
+  position: relative;
+}
+
+.Modal-body h2 {
+  margin-bottom: 10px;
+}
+
+.Modal-body ul h4 {
+  margin: 10px 0;
+}
+
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-weight: bolder;
+  font-size: 20px;
+
+}
+
+.blur {
+  filter: blur(2px);
+}
